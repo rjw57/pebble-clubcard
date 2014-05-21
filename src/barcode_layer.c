@@ -87,7 +87,7 @@ void barcode_layer_update_proc(Layer *layer, GContext* ctx)
 void barcode_layer_set_bar_state(BarcodeLayer* barcode, int16_t idx, int16_t value)
 {
     // Do nothing if the bar index is invalid
-    if((idx < 0) || (idx >= barcode->n_bars)) {
+    if((idx < 0) || (idx >= barcode->n_bars) || (idx >= MAX_BARS)) {
         return;
     }
 
@@ -111,7 +111,7 @@ void barcode_layer_set_bar_state(BarcodeLayer* barcode, int16_t idx, int16_t val
 int16_t barcode_layer_get_bar_state(BarcodeLayer* barcode, int16_t idx)
 {
     // Do nothing if the bar index is invalid
-    if((idx < 0) || (idx >= barcode->n_bars)) {
+    if((idx < 0) || (idx >= barcode->n_bars) || (idx >= MAX_BARS)) {
         return 0;
     }
 
