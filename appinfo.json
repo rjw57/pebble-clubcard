@@ -1,0 +1,17 @@
+{
+  "uuid": "53361af5-f502-49c4-904a-079e688d4a04",
+  "shortName": "clubcard",
+  "longName": "clubcard",
+  "companyName": "MakeAwesomeHappen",
+  "versionCode": 1,
+  "versionLabel": "1.0.0",
+  "watchapp": {
+    "watchface": false
+  },
+  "appKeys": {
+    "dummy": 0
+  },
+  "resources": {
+    "media": []
+  }
+}
