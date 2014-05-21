@@ -17,8 +17,8 @@
       <div data-role="content">
 
         <div data-role="fieldcontain">
-          <label for="number">Account number</label>
-          <input name="number" type="number" pattern="63400[0-9]{13}"
+          <label for="accountNumber">Account number</label>
+          <input id="accountNumber" name="accountNumber" type="number" pattern="63400[0-9]{13}"
             placeholder="63400000000000000">
         </div>
 
@@ -33,7 +33,7 @@
     <script>
       function saveOptions() {
         var options = {
-          'number': $("#number").val(),
+          'accountNumber': $("#accountNumber").val(),
         }
         return options;
       }

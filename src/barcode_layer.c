@@ -166,8 +166,15 @@ void barcode_layer_set_value(BarcodeLayer* barcode, const char* value)
 {
     int16_t checksum = 0;
 
-    // reset barcode and start C
+    // reset barcode
     barcode->n_bars = 0;
+
+    // if value is empty, return
+    if(!value || (0 == strlen(value))) {
+        return;
+    }
+
+    // start C
     barcode_layer_append_value(barcode, 105); // start code C
     checksum = 105;
 
@@ -206,4 +213,7 @@ void barcode_layer_set_value(BarcodeLayer* barcode, const char* value)
 
     // stop
     barcode_layer_append_value(barcode, 106);
+
+    // mark dirty
+    layer_mark_dirty(barcode->base_layer);
 }
