@@ -2,6 +2,9 @@
 
 #include "barcode_layer.h"
 
+#define CLUBCARD_CODE_LENGTH 17 // including '\0' character
+#define CLUBCARD_CODE_KEY 1
+
 static Window *window;
 static BarcodeLayer *barcode_layer;
 
@@ -13,7 +16,10 @@ static void window_load(Window *window) {
         .origin = { 0, 0 }, .size = { bounds.size.w, bounds.size.h }
     });
 
-    barcode_layer_set_value(barcode_layer, "9794000000000000");
+    char clubcard_code[CLUBCARD_CODE_LENGTH];
+    if(persist_read_string(CLUBCARD_CODE_KEY, clubcard_code, CLUBCARD_CODE_LENGTH) > 0) {
+        barcode_layer_set_value(barcode_layer, clubcard_code);
+    }
 
     layer_add_child(window_layer, barcode_layer_get_layer(barcode_layer));
 }
